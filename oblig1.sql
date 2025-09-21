@@ -51,4 +51,19 @@
     */
 
 
+--Oppgave 5)
+    -- Oppgave 5 a) Legger til sola i stjerne tabellen
+    insert into stjerne (navn, avstand, masse)
+    values ('sola',0,1);
 
+    -- Oppgave 5 b) Legger til jorda i planet tabellen
+    insert into planet (navn, masse, oppdaget, stjerne)
+    values('Jorda',0.003146,NULL,'sola');
+
+--Oppgave 6) Lager en ny tabell observasjon med attributtene observasjon_id, tidspunkt, på_planet og kommentar.
+    create table observasjon(
+        observasjon_id serial primary key,
+        tidspunkt timestamp not NULL,
+        på_planet text references planet(navn),
+        kommentar text
+        );
